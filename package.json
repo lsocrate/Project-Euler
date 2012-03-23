@@ -1,0 +1,8 @@
+{
+	"name": "Project-Euler",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"expresso": ">= 0.9.0"
+	}
+}
