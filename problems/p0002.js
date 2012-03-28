@@ -28,25 +28,24 @@ Array.prototype.last = function() {
 };
 
 Fibonacci = function(){
-  this.previous = 0;
-  this.actual   = 1;
-  this.sequence = [];
+  this.sequence = [1,2];
 };
 
-Fibonacci.prototype.getNextNumber = function() {
-  var next = this.previous + this.actual;
-
-  this.previous = this.actual;
-  this.actual = next;
-
-  return next;
+Fibonacci.prototype.previous = function() {
+  return this.sequence[this.sequence.length - 2];
+};
+Fibonacci.prototype.actual = function() {
+  return this.sequence[this.sequence.length - 1];
+};
+Fibonacci.prototype.setNextNumber = function() {
+  this.sequence.push(this.previous() + this.actual());
 };
 
 Fibonacci.prototype.first = function(qty) {
   qty = parseInt(qty, 10);
 
   while(this.sequence.length < qty){
-    this.sequence.push(this.getNextNumber());
+    this.setNextNumber();
   }
 
   return this.sequence;
@@ -54,10 +53,8 @@ Fibonacci.prototype.first = function(qty) {
 Fibonacci.prototype.until = function(limit) {
   limit = parseInt(limit, 10);
 
-  this.sequence.push(this.getNextNumber());
-
   while(this.sequence.last() < limit){
-    this.sequence.push(this.getNextNumber());
+    this.setNextNumber();
   }
 
   this.sequence.pop();
