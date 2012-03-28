@@ -1,5 +1,3 @@
-var util = require('util');
-
 sum = function(numbers, type) {
   var result = 0;
 
