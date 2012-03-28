@@ -23,10 +23,6 @@ sum = function(numbers, type) {
   return result;
 };
 
-Array.prototype.last = function() {
-  return this[this.length - 1];
-};
-
 Fibonacci = function(){
   this.sequence = [1,2];
 };
